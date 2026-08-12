@@ -13,6 +13,7 @@
             --muted: #8a99ad;
             --danger: #ff4757;
             --success: #2ed573;
+            --warning: #ffa502;
             --border: #1e2d50;
         }
 
@@ -98,6 +99,19 @@
 
         .pricing-row:last-child { border-bottom: none; }
         .price-tag { color: var(--accent); font-weight: bold; }
+
+        /* NOTICE BOX */
+        .notice-box {
+            background: rgba(255, 165, 2, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.85rem;
+            color: #ffeaa7;
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.4;
+        }
 
         .payment-box {
             border: 1px solid var(--border);
@@ -307,6 +321,10 @@
                 </div>
             </div>
 
+            <div class="notice-box" id="t-notice-text">
+                ⚠️ <b>IMPORTANT:</b> Please include your <b>E-mail address</b> in the payment note/message when sending money. I will send your activation code to that email. Also, remember to check your <b>Spam folder</b>!
+            </div>
+
             <div class="payment-box">
                 <div class="payment-title" id="t-pay-title">Bank Transfer / QR Code</div>
                 <div class="payment-sub" id="t-pay-sub">After payment, an activation code will be sent to your email / message.</div>
@@ -314,7 +332,6 @@
                 <div class="iban-box">SK55 1100 0000 0029 7011 1093</div>
                 <div class="recipient"><span id="t-recipient">Recipient name:</span> <b>Patrik Šuľaj</b></div>
 
-                <!-- QR CODE FROM YOUR IMAGE -->
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=SK5511000000002970111093" class="qr-img" alt="Payment QR Code">
             </div>
 
@@ -380,12 +397,12 @@
 </div>
 
 <script>
-    // PREKLADY / TRANSLATIONS
     const translations = {
         en: {
             pricingTitle: "ACCESS PRICING",
             planLifetime: "LIFETIME ACCESS",
             planVip: "VIP Package (Access + Discord)",
+            noticeText: "⚠️ <b>IMPORTANT:</b> Please include your <b>E-mail address</b> in the payment note/message when sending money. I will send your activation code to that email. Also, remember to check your <b>Spam folder</b>!",
             payTitle: "Bank Transfer / QR Code",
             paySub: "After payment, an activation code will be sent to your email / message.",
             recipient: "Recipient name:",
@@ -419,6 +436,7 @@
             pricingTitle: "CENNÍK PRÍSTUPOV",
             planLifetime: "Doživotný prístup (LIFETIME)",
             planVip: "VIP Balík (Prístup + Discord Komunita)",
+            noticeText: "⚠️ <b>DÔLEŽITÉ:</b> Pri odosielaní platby uveď do <b>poznámky pre príjemcu svoj E-mail</b>. Naň ti následne pošlem aktivačný kód. Nezabudni skontrolovať aj priečinok <b>Spam</b>!",
             payTitle: "Platba prevodom / QR kódom",
             paySub: "Po zaplatení ti príde aktivačný kód na e-mail / do správy.",
             recipient: "Meno príjemcu:",
@@ -452,6 +470,7 @@
             pricingTitle: "CENÍK PŘÍSTUPŮ",
             planLifetime: "Doživotní přístup (LIFETIME)",
             planVip: "VIP Balíček (Přístup + Discord Komunita)",
+            noticeText: "⚠️ <b>DŮLEŽITÉ:</b> Při odesílání platby uveď do <b>poznámky pro příjemce svůj E-mail</b>. Na něj ti následně pošlu aktivační kód. Nezapomeň zkontrolovat i složku <b>Spam</b>!",
             payTitle: "Platba převodem / QR kódem",
             paySub: "Po zaplacení ti přijde aktivační kód na e-mail / do zprávy.",
             recipient: "Jméno příjemce:",
@@ -485,6 +504,7 @@
             pricingTitle: "ZUGANGSPREISE",
             planLifetime: "LEBENSLANGER ZUGANG",
             planVip: "VIP-Paket (Zugang + Discord)",
+            noticeText: "⚠️ <b>WICHTIG:</b> Bitte geben Sie bei der Überweisung Ihre <b>E-Mail-Adresse</b> im Verwendungszweck an. Ich sende Ihnen den Aktivierungscode an diese E-Mail. Denken Sie auch daran, Ihren <b>Spam-Ordner</b> zu prüfen!",
             payTitle: "Überweisung / QR-Code",
             paySub: "Nach der Zahlung wird ein Aktivierungscode an Ihre E-Mail gesendet.",
             recipient: "Empfängername:",
@@ -518,6 +538,7 @@
             pricingTitle: "HOZZÁFÉRÉSI ÁRAK",
             planLifetime: "ÉLETHOSSZIG TARTÓ HOZZÁFÉRÉS",
             planVip: "VIP Csomag (Hozzáférés + Discord)",
+            noticeText: "⚠️ <b>FONTOS:</b> Utaláskor kérjük, tüntesse fel <b>e-mail címét</b> a közlemény rovatban. Az aktiváló kódot erre az e-mail címre küldjük. Ne felejtse el ellenőrizni a <b>Spam mappát</b> sem!",
             payTitle: "Banki átutalás / QR-kód",
             paySub: "A fizetés után az aktiváló kódot e-mailben küldjük el.",
             recipient: "Címzett neve:",
@@ -551,6 +572,7 @@
             pricingTitle: "CENNIK DOSTĘPU",
             planLifetime: "DOŻYWOTNI DOSTĘP",
             planVip: "Pakiet VIP (Dostęp + Discord)",
+            noticeText: "⚠️ <b>WAŻNE:</b> Podczas wysyłania płatności prosimy o wpisanie swojego <b>adresu e-mail</b> w tytule przelewu. Kod aktywacyjny wyślemy na ten e-mail. Pamiętaj również o sprawdzeniu folderu <b>Spam</b>!",
             payTitle: "Przelew / Kod QR",
             paySub: "Po dokonaniu płatności kod aktywacyjny zostanie wysłany na e-mail.",
             recipient: "Odbiorca:",
@@ -592,6 +614,7 @@
         document.getElementById('t-pricing-title').innerText = t.pricingTitle;
         document.getElementById('t-plan-lifetime').innerText = t.planLifetime;
         document.getElementById('t-plan-vip').innerText = t.planVip;
+        document.getElementById('t-notice-text').innerHTML = t.noticeText;
         document.getElementById('t-pay-title').innerText = t.payTitle;
         document.getElementById('t-pay-sub').innerText = t.paySub;
         document.getElementById('t-recipient').innerText = t.recipient;
